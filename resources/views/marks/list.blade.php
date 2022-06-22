@@ -99,7 +99,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="save">Save changes</button>
+                        <button type="submit" class="btn btn-primary" id="save" data-action="post">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -140,7 +140,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 url: "{{ route('marks.save') }}",
-                type: 'POST',
+                type: $("#save").attr('data-action'),
                 data: formData,
                 success: function (data) {
                     data = JSON.parse(data);
@@ -149,7 +149,6 @@
                         location.reload();
                     }
                 }, error: function (e) {
-                    console.log(e.responseJSON.errors);
                     let errArr = e.responseJSON.errors
                     for (key in errArr) {
                         $('#err-div').append(`
@@ -163,12 +162,14 @@
         });
 
         $('.add-btn').on('click', function(){
+            $("#save").attr('data-action','post');
             $('#err-div').html('');
             $('#markModal form').trigger('reset');
         });
 
 
         $('.mark-edit').on('click', function (e) {
+            $("#save").attr('data-action','patch');
             $('#err-div').html('');
             var url = '{{ route('marks.get', [":id", ":term"]) }}';
             url = url.replace(':id', $(this).data('stid'));

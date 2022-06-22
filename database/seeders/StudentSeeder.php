@@ -22,7 +22,7 @@ class StudentSeeder extends Seeder
             'gender' => 'm',
             'reporting_teacher_id' => 1,
             'created_at' => Carbon::now(),
-            'update_at' => Carbon::now()
+            'updated_at' => Carbon::now()
         ],
             [
                 'id' => '2',
@@ -31,7 +31,7 @@ class StudentSeeder extends Seeder
                 'gender' => 'f',
                 'reporting_teacher_id' => 2,
                 'created_at' => Carbon::now(),
-                'update_at' => Carbon::now()
+                'updated_at' => Carbon::now()
             ]],
         );
     }

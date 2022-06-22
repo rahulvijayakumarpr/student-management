@@ -29,3 +29,4 @@ Route::get('/marks', [StudentMarkController::class, 'index']);
 Route::get('/marks/{student_id}/{term}', [StudentMarkController::class, 'get'])->name('marks.get');
 Route::delete('/marks/{student_id}/{term}', [StudentMarkController::class, 'delete'])->name('marks.delete');
 Route::post('/marks/submit', [StudentMarkController::class, 'save'])->name('marks.save');
+Route::patch('/marks/submit', [StudentMarkController::class, 'update'])->name('marks.save');

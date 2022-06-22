@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentMarkPatchRequest;
 use App\Http\Requests\StudentMarkPostRequest;
 use App\Models\Student;
 use App\Models\StudentMark;
@@ -26,6 +27,15 @@ class StudentMarkController extends Controller
 
     public function save(StudentMarkPostRequest $request)
     {
+        return $this->insert($request);
+    }
+
+    public function update(StudentMarkPatchRequest $request)
+    {
+        return $this->insert($request);
+    }
+
+    public function insert($request) {
         $mArr = [];
         $subjectCount = 3;
         $mArr['student_id'] = $request["mark-stud"];

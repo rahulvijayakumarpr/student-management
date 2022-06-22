@@ -143,7 +143,6 @@
                         location.reload();
                     }
                 }, error: function (e) {
-                    console.log(e.responseJSON.errors);
                     let errArr = e.responseJSON.errors
                     for (key in errArr) {
                         $('#err-div').append(`

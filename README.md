@@ -1,7 +1,10 @@
 
 ## Docker
 
-Run using command ./vendor/bin/sail up
+Run using commands below
+- Run `./vendor/bin/sail artisan migrate --seed`
+- Run `./vendor/bin/sail up`
+
 
 ## LAMP
 - Pull the code in var/bin/www folder
